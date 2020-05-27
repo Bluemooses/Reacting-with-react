@@ -10,17 +10,34 @@ class App extends Component {
   constructor(){
     super(); //calls constructor on the classApp
   this.state = {
-    string: 'Hello gorgeous'//The is the string that I just input
+    monsters :[ //The is the string that I just input
+          {
+            name: 'Lochness',
+            id: 'asc1'
+          },
+          {
+            name: 'Wolfboy',
+            id: 'asc2'
+          },
+          {
+            name: 'Zombie',
+            id: 'asw1'
+          }  
+        ]
+      };
   };
-  };
-  render() {//render returns any HTML you want!  
-    return(
-      <div className='App'>
-        <header className='App-header'>
-          <img src={logo} className='App-logo' alt='logo' />
-          <p>{this.state.string}</p>
-          <button onClick={() => this.setState({ string: 'You look fear in the eye and approach it openly' })}>Text Changer</button>
-        </header>
-        </div>
-    )}}
-export default App;
+  render() {//anything inside here is jsx code syntax.  {} Notation.  
+return(
+    <div className='App'>
+      {this.state.monsters.map(monster => (
+          <h1 key={monster.id}> {monster.name} </h1>
+
+      ))}
+
+
+
+    </div>
+ 
+  );
+}         }
+export default App;//Plug-and-play for virtual DOM.
